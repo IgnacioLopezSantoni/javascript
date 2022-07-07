@@ -1,23 +1,3 @@
-/*let nombre = prompt ("ingresu su nombre")
-let precio = 0
-alert ("buen dia " + nombre)
-
-let corte = prompt( "ingrese que tipo de corte quiere " + " opcion 1 femenino , opcion 2 masculino" )
-
-while(corte !=1 && corte !=2){
-
-    alert("el numero ingresado es incorrecto")
-    corte = prompt( "ingrese que tipo de corte quiere " + " opcion 1 femenino , opcion 2 masculino" )
-}
-
-if(corte ==1){
-    precio= 500
-} else(precio= 900 )
- alert ( "el precio del corte es " + precio)
- 
-   */
-
-
 let producto = '';
 let total = 0;
 
@@ -69,9 +49,37 @@ function comprar() {
 comprar();
 
 
-
-const producto1 = {
-    nombre: "televisor",
-    precio: "2000"
+class Producto {
+    constructor(nombre, precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
 }
-console.log(producto1.nombre)
+
+let listaProductos = [{
+        nombre: "Hamburguesa cheddar y bacon",
+        precio: 1100
+    },
+    {
+        nombre: "Papas con cheddar",
+        precio: 550
+    },
+    {
+        nombre: "Coca Cola",
+        precio: 300
+    }
+
+];
+
+const agregarProd = () => {
+    let nombre = prompt("Nombre del producto");
+    let precio = parseFloat(prompt("Nombre del producto"));
+    let prod = new Producto(nombre, precio);
+    listaProductos.push(prod);
+    console.log(listaProductos);
+}
+
+
+for (let producto of listaProductos) {
+    console.log(`Este producto es ${producto.nombre} y su precio es ${producto.precio}`);
+}
