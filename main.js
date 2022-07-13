@@ -1,85 +1,50 @@
 let producto = '';
 let total = 0;
-
-function comprar() {
-
-    while (producto != '8') {
-        producto = prompt(`¿Que desea comprar? Ingrese su eleccion.\n 1.Hamburguesa con cheddar $700.\n 2. Hamburguesa con doble cheddar $850.\n 3. Hamburguesa con cheddar y bacon $ 1100.\n 4.Hamburguesa vegetariana $ 850.\n 5. Papas con cheddar $ 450.\n 6. Papas con cheddar y bacon $ 550.\n 7. Papas con cheddar,bacon y verdeo $ 600.\n 8. Finalizar compra`);
-
-        switch (producto) {
-            case '1':
-                total += 700;
-                console.log(`su compra es de: ${total}`);
-                break;
-            case '2':
-                total += 850;
-                alert(`su compra es de: ${total}`);
-                break;
-            case '3':
-                total += 1100;
-                alert(`su compra es de: ${total}`);
-                break;
-            case '4':
-                total += 850;
-                alert(`su compra es de: ${total}`);
-                break;
-            case '5':
-                total += 450;
-                alert(`su compra es de: ${total}`);
-                break;
-            case '6':
-                total += 550;
-                alert(`su compra es de: ${total}`);
-                break;
-            case '7':
-                total += 600;
-                alert(`su compra es de: ${total}`);
-                break;
-            case '8':
-                alert(`gracias por su maravillosa compra, el total es: ${total}`);
-                break;
-        }
-    }
-
-
-
-}
-
-
-comprar();
-
+let listaProductos = [];
+let carrito = [];
+let prod;
 
 class Producto {
-    constructor(nombre, precio) {
+    constructor(id, nombre, precio) {
+        this.id = id;
         this.nombre = nombre;
         this.precio = precio;
     }
 }
 
-let listaProductos = [{
-        nombre: "Hamburguesa cheddar y bacon",
-        precio: 1100
-    },
-    {
-        nombre: "Papas con cheddar",
-        precio: 550
-    },
-    {
-        nombre: "Coca Cola",
-        precio: 300
+const producto1 = new Producto('1', 'Hamburguesa con cheddar', 700)
+const producto2 = new Producto('2', 'Hamburguesa con doble cheddar', 850)
+const producto3 = new Producto('3', 'Hamburguesa con cheddar y bacon', 1100)
+const producto4 = new Producto('4', 'Hamburguesa vegetariana', 850)
+const producto5 = new Producto('5', 'Papas con cheddar', 450)
+const producto6 = new Producto('6', 'Papas con cheddar y bacon', 550)
+const producto7 = new Producto('7', 'Lomito completo', 1000)
+
+listaProductos.push(producto1, producto2, producto3, producto4, producto5, producto6, producto7)
+
+function armarLista() {
+    let mensaje = '¿Que desea comprar? Ingrese su eleccion.'
+
+    for (const producto of listaProductos) {
+        let numero = listaProductos.indexOf(producto) + 1
+        mensaje += `\n ${numero}. ${producto.nombre} $${producto.precio}`
     }
 
-];
-
-const agregarProd = () => {
-    let nombre = prompt("Nombre del producto");
-    let precio = parseFloat(prompt("Nombre del producto"));
-    let prod = new Producto(nombre, precio);
-    listaProductos.push(prod);
-    console.log(listaProductos);
+    mensaje += `\n ${listaProductos.length + 1}. Finalizar compra`
+    return mensaje
 }
 
-
-for (let producto of listaProductos) {
-    console.log(`Este producto es ${producto.nombre} y su precio es ${producto.precio}`);
+function comprar() {
+    let idSeleccionado;
+    do {
+        idSeleccionado = prompt(armarLista());
+        let productoSeleccionado = listaProductos.find(p => p.id === idSeleccionado);
+        console.log('productoSeleccionado', productoSeleccionado);
+        if (productoSeleccionado !== undefined) {
+            carrito.push(productoSeleccionado)
+            console.log('carrito', carrito)
+        }
+    } while(idSeleccionado !== '8')
 }
+
+comprar()
