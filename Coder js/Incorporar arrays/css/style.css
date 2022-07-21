@@ -1,22 +1,9 @@
 body{
-    background-color: rgb(205, 129, 129);
+    background-color: aquamarine;
 }
-.navbar{
-    background-color: rgb(172, 119, 119);
+#items{
     display: flex;
-    justify-content: space-around;
-}
-.imagen-producto {
-    width: 100%;
-    text-align: center;
-}
-#card-container {
-    display: flex;
+    flex-direction:initial;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    margin: 50px;
-}
-
-.card-product{
-    margin: auto 2rem;
+    justify-content: space-between;
 }
