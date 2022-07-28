@@ -1,9 +1,9 @@
 body{
-    background-color: aquamarine;
+    background-color: rgb(196, 220, 107);
 }
 #items{
     display: flex;
-    flex-direction:initial;
-    flex-wrap: wrap;
+   flex-wrap: wrap;
     justify-content: space-between;
+    text-align:justify;
 }
