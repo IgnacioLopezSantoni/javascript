@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-
+ 
     const baseDeDatos = [{
             id: 1,
             nombre: 'Hamburguesa con cheddar',
@@ -89,7 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function añadirProductoAlCarrito(evento) {
 
         carrito.push(evento.target.getAttribute('marcador'))
-
+        
+            Swal.fire('Has agragado este producto al carrito')
+      
         renderizarCarrito();
 
         guardarCarritoEnLocalStorage();
@@ -148,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarCarrito();
 
         guardarCarritoEnLocalStorage();
-
+        
     }
 
 
@@ -172,7 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarCarrito();
 
         localStorage.clear();
-
+        
+            Swal.fire('Has eliminado los productos del carrito')
+       
+        
     }
 
     function guardarCarritoEnLocalStorage() {
@@ -190,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     DOMbotonVaciar.addEventListener('click', vaciarCarrito);
 
-
+    
     cargarCarritoDeLocalStorage();
     renderizarProductos();
     renderizarCarrito();
