@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
- 
+
     const baseDeDatos = [{
             id: 1,
             nombre: 'Hamburguesa con cheddar',
@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function añadirProductoAlCarrito(evento) {
 
         carrito.push(evento.target.getAttribute('marcador'))
-        
-            Swal.fire('Has agragado este producto al carrito')
-      
+
+        Swal.fire('Has agragado este producto al carrito')
+
         renderizarCarrito();
 
         guardarCarritoEnLocalStorage();
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarCarrito();
 
         guardarCarritoEnLocalStorage();
-        
+
     }
 
 
@@ -174,10 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarCarrito();
 
         localStorage.clear();
-        
-            Swal.fire('Has eliminado los productos del carrito')
-       
-        
+
+        Swal.fire('Has eliminado los productos del carrito')
+
+
     }
 
     function guardarCarritoEnLocalStorage() {
@@ -192,10 +192,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function traerRatioDeConversion(to, from, amount) {
+        const myHeaders = new Headers();
+        myHeaders.append("apikey", "LkLMGAc0oWwtua3fuyUdlbDarmClOhjT");
+
+        const requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
+            headers: myHeaders
+        };
+
+        fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`, requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                
+            })
+            .catch(error => console.log('error', error));
+    }
+
 
     DOMbotonVaciar.addEventListener('click', vaciarCarrito);
 
-    
+    traerRatioDeConversion('ARS', 'USD', 1000);
     cargarCarritoDeLocalStorage();
     renderizarProductos();
     renderizarCarrito();

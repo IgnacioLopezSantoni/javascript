@@ -1,9 +1,5 @@
 body{
     background-color: rgb(196, 220, 107);
 }
-#items{
-    display: flex;
-   flex-wrap: wrap;
-    justify-content: space-between;
-    text-align:justify;
-}
+
+
