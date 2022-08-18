@@ -1,5 +1,70 @@
-body{
-    background-color: rgb(196, 220, 107);
+body {
+    background-color: rgb(255, 255, 224);
 }
 
+.title {
+    justify-content: center;
+    text-align: center;
 
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: rgb(249, 249, 192);
+    width: 20%;
+    border-radius: 10px;
+    margin: 1% 2.5%;
+    overflow-x: hidden;
+}
+
+.product-image {
+    height: 250px;
+    width: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-titles {
+    justify-content: center;
+    text-align: center;
+
+}
+
+.btn-primary {
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    margin-bottom: 5px;
+
+}
+
+.card-text {
+    justify-content: center;
+    text-align: center;
+
+}
+
+.footer {
+    text-align: center;
+    align-items: center;
+}
+
+#boton-vaciar {
+    border-radius: 10px;
+    margin-bottom: 5px;
+
+}

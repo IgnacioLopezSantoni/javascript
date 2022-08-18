@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 1,
             nombre: 'Hamburguesa con cheddar',
             precio: 700,
-            imagen: 'https://www.clarin.com/img/2022/05/27/la-hamburguesa-mucho-mas-que___0HXb0UR0v_200x230__1.jpg'
+            imagen: 'https://lowells.com.ar/wp-content/uploads/2020/04/Mar-05-134751-1024x683.jpg'
         },
         {
             id: 2,
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 4,
-            nombre: 'lomito',
+            nombre: 'Lomito',
             precio: 1200,
             imagen: 'https://www.clarin.com/img/2021/07/26/el-lomito-uno-de-los___u-aUfp64d_640x361__1.jpg'
         },
@@ -53,22 +53,22 @@ document.addEventListener('DOMContentLoaded', () => {
         baseDeDatos.forEach((info) => {
 
             const miNodo = document.createElement('div');
-            miNodo.classList.add('card', 'col-sm-4');
+            miNodo.classList.add('card', 'col-sm-4', 'product-card');
 
             const miNodoCardBody = document.createElement('div');
             miNodoCardBody.classList.add('card-body');
 
             const miNodoTitle = document.createElement('h5');
-            miNodoTitle.classList.add('card-title');
+            miNodoTitle.classList.add('card-title', 'card-titles');
             miNodoTitle.textContent = info.nombre;
 
             const miNodoImagen = document.createElement('img');
-            miNodoImagen.classList.add('img-fluid');
+            miNodoImagen.classList.add('img-fluid', 'product-image');
             miNodoImagen.setAttribute('src', info.imagen);
 
             const miNodoPrecio = document.createElement('p');
             miNodoPrecio.classList.add('card-text');
-            miNodoPrecio.textContent = `${info.precio}${divisa}`;
+            miNodoPrecio.textContent = `$${info.precio}`;
 
             const miNodoBoton = document.createElement('button');
             miNodoBoton.classList.add('btn', 'btn-primary');
@@ -118,9 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 0);
 
             const miNodo = document.createElement('li');
-            miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+            miNodo.classList.add('list-group-item', 'text-right', 'mx-2', 'items');
             miNodo.textContent =
-                `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+                `${numeroUnidadesItem} x ${miItem[0].nombre} - $${miItem[0].precio}`;
 
             const miBoton = document.createElement('button');
             miBoton.classList.add('btn', 'btn-danger', 'mx-5');
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(result => {
                 console.log(result)
-                
+
             })
             .catch(error => console.log('error', error));
     }
