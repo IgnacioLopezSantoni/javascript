@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 2,
             nombre: 'hamburguesa doble cheddar',
             precio: 850,
-            imagen: 'https://www.supermercedes.com.ar/lanonnacocina/wp-content/uploads/2021/06/doble-con-cheddar.jpg'
+            imagen: 'https://tse3.mm.bing.net/th?id=OIP.-ZzqW5eWZWQi0pb2bLMELwHaFk&pid=Api&P=0.jpg'
         },
         {
             id: 3,
